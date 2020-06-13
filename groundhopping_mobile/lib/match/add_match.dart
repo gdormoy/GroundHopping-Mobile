@@ -15,13 +15,21 @@ class _AddMatchState extends State<AddMatchPage> {
       appBar: AppBar(
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Here, you can add a match',
-            ),
-          ],
+        child: StreamBuilder(
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(
+                ),
+              );
+            } else {
+              return ListView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile();
+                  }
+              );
+            }
+          }
         ),
       ),
     );
